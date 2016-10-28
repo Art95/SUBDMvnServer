@@ -1,26 +1,23 @@
-package com.wslfinc.subd;
+package com.wslfinc.ws;
 
 /**
- * Created by Artem on 21.10.2016.
+ * Created by Artem on 15.10.2016.
  */
+
 import com.wslfinc.database.DataBase;
 
-import javax.jws.WebMethod;
-import javax.jws.WebParam;
 import javax.jws.WebService;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
-@WebService
-public class SUBDService
-{
+@WebService(endpointInterface = "com.wslfinc.ws.SUBDInterface")
+public class SUBDImpl implements SUBDInterface {
     private Map<String, DataBase> dataBaseMap;
     private final String folderAddress = "./Databases/";
 
-    @WebMethod
-    public void createDataBase(@WebParam(name="name") String name)
-    {
+    @Override
+    public void createDataBase(String name) {
         if (dataBaseMap == null)
             loadDataBases();
 
@@ -33,8 +30,8 @@ public class SUBDService
         dataBaseMap.put(name, db);
     }
 
-    @WebMethod
-    public void dropDataBase(@WebParam(name="name") String name) {
+    @Override
+    public void dropDataBase(String name) {
         if (dataBaseMap == null)
             loadDataBases();
 
@@ -46,8 +43,8 @@ public class SUBDService
         }
     }
 
-    @WebMethod
-    public void saveDataBase(@WebParam(name="name") String name, @WebParam(name="data") String data) {
+    @Override
+    public void saveDataBase(String name, String data) {
         if (dataBaseMap == null)
             loadDataBases();
 
@@ -62,8 +59,8 @@ public class SUBDService
         }
     }
 
-    @WebMethod
-    public String getDataBaseData(@WebParam(name="name") String name) {
+    @Override
+    public String getDataBaseData(String name) {
         if (dataBaseMap == null)
             loadDataBases();
 
@@ -73,7 +70,7 @@ public class SUBDService
         return null;
     }
 
-    @WebMethod
+    @Override
     public String[] getDataBasesNames() {
         if (dataBaseMap == null)
             loadDataBases();
