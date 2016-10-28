@@ -14,7 +14,7 @@ import java.util.Map;
 @WebService(serviceName = "DatabaseService", endpointInterface = "com.wslfinc.ws.SUBDInterface")
 public class SUBDImpl implements SUBDInterface {
     private Map<String, DataBase> dataBaseMap;
-    private final String folderAddress = "./Databases/";
+    //private final String folderAddress = "./Databases/";
 
     public SUBDImpl() {
         super();
@@ -42,8 +42,8 @@ public class SUBDImpl implements SUBDInterface {
         if (dataBaseMap.containsKey(name)) {
             dataBaseMap.remove(name);
 
-            File file = new File(folderAddress + name + ".txt");
-            file.delete();
+            //File file = new File(folderAddress + name + ".txt");
+            //file.delete();
         }
     }
 
@@ -56,7 +56,7 @@ public class SUBDImpl implements SUBDInterface {
             if (dataBaseMap.containsKey(name)) {
 
                 dataBaseMap.put(name, DataBase.parseJson(data));
-                dataBaseMap.get(name).saveDataBase(folderAddress + name + ".txt");
+                //dataBaseMap.get(name).saveDataBase(folderAddress + name + ".txt");
             }
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -92,7 +92,7 @@ public class SUBDImpl implements SUBDInterface {
     private void loadDataBases() {
         dataBaseMap = new HashMap<>();
 
-        File dir = new File(folderAddress);
+        /*File dir = new File(folderAddress);
         File[] files = dir.listFiles();
 
         for (File file : files) {
@@ -102,6 +102,6 @@ public class SUBDImpl implements SUBDInterface {
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
-        }
+        }*/
     }
 }
