@@ -6,23 +6,25 @@ package com.wslfinc.ws;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
+import java.rmi.Remote;
+import java.rmi.RemoteException;
 
 
 @WebService
 @SOAPBinding(style = SOAPBinding.Style.RPC)
-public interface SUBDInterface {
+public interface SUBDInterface extends Remote{
     @WebMethod
-    void createDataBase(String name);
+    void createDataBase(String name) throws RemoteException;
 
     @WebMethod
-    void dropDataBase(String name);
+    void dropDataBase(String name) throws RemoteException;
 
     @WebMethod
-    void saveDataBase(String name, String data);
+    void saveDataBase(String name, String data) throws RemoteException;
 
     @WebMethod
-    String getDataBaseData(String name);
+    String getDataBaseData(String name) throws RemoteException;
 
     @WebMethod
-    String[] getDataBasesNames();
+    String[] getDataBasesNames() throws RemoteException;
 }
