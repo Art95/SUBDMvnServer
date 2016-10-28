@@ -19,6 +19,6 @@ public class Publisher {
         String address = "http://0.0.0.0:" + port + "/subd";
         Endpoint.publish(address, new SUBDImpl());
          //Endpoint.publish("http://localhost:1986/wss/hello", new SUBDImpl());
-        System.out.println("Web server running at " + address);
+        System.out.println("Web server running at " + address + "?wsdl");
     }
 }

@@ -11,10 +11,14 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
-@WebService(endpointInterface = "com.wslfinc.ws.SUBDInterface")
+@WebService(serviceName = "DatabaseService", endpointInterface = "com.wslfinc.ws.SUBDInterface")
 public class SUBDImpl implements SUBDInterface {
     private Map<String, DataBase> dataBaseMap;
     private final String folderAddress = "./Databases/";
+
+    public SUBDImpl() {
+        super();
+    }
 
     @Override
     public void createDataBase(String name) {
