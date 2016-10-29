@@ -109,21 +109,19 @@ public class DataBase implements Serializable {
     }
 
     public void saveDataBase(String fileAddress) throws IOException {
-       /* FileOutputStream fileOut = new FileOutputStream(fileAddress);
+        FileOutputStream fileOut = new FileOutputStream(fileAddress);
         ObjectOutputStream out = new ObjectOutputStream(fileOut);
         out.writeObject(this);
-        out.close();*/
+        out.close();
     }
 
     public static DataBase loadDataBase(String fileAddress) throws IOException, ClassNotFoundException {
-       /* FileInputStream fileIn = new FileInputStream(fileAddress);
+        FileInputStream fileIn = new FileInputStream(fileAddress);
         ObjectInputStream in = new ObjectInputStream(fileIn);
         DataBase db = (DataBase) in.readObject();
         in.close();
         fileIn.close();
 
-        return db;*/
-
-       return null;
+        return db;
     }
 }

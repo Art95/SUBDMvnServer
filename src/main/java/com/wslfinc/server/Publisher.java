@@ -16,7 +16,7 @@ public class Publisher {
             port = Integer.parseInt(args[0]);
         }
 
-        String address = "http://localhost:" + port + "/subd";
+        String address = "http://0.0.0.0:" + port + "/subd";
         Endpoint.publish(address, new SUBDImpl());
          //Endpoint.publish("http://localhost:7777/subd", new SUBDImpl());
         System.out.println("Web server running at " + address + "?wsdl");
